@@ -5,7 +5,7 @@ To run the Python Jupyter Notebook:
 
 - Download Project from Git.
 - Open Command Prompt/Terminal and change directory to the Project Folder.
-- Create a New Virtual Environment running the latest version of Python.
+- Create a new virtual environment running the latest version of Python.
 - Type "pip3 install -r requirements.txt" on Command Prompt/Terminal to install all the project requirements and dependencies.
 - Type "jupyter notebook" Command Prompt/Terminal
 - Open the "TriangulationDemo.ipynb" file on the Jupyter Server.
