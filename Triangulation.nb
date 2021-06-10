@@ -10,249 +10,250 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     16663,        418]
-NotebookOptionsPosition[     15954,        399]
-NotebookOutlinePosition[     16294,        414]
-CellTagsIndexPosition[     16251,        411]
+NotebookDataLength[     18165,        451]
+NotebookOptionsPosition[     17106,        425]
+NotebookOutlinePosition[     17446,        440]
+CellTagsIndexPosition[     17403,        437]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
-Cell[BoxData[{
- RowBox[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", "\[IndentingNewLine]", 
   RowBox[{
-   RowBox[{"AffineMatrix", "=", 
-    RowBox[{"Function", "[", 
-     RowBox[{"S", ",", "\[IndentingNewLine]", 
-      RowBox[{
-       RowBox[{"n", "=", 
-        RowBox[{
-         RowBox[{"Length", "[", "S", "]"}], "-", "1"}]}], ";", 
-       "\[IndentingNewLine]", 
-       RowBox[{"Transpose", "[", 
-        RowBox[{"Table", "[", 
-         RowBox[{
-          RowBox[{
-           RowBox[{"S", "[", 
-            RowBox[{"[", 
-             RowBox[{"i", "+", "1"}], "]"}], "]"}], "-", 
-           RowBox[{"S", "[", 
-            RowBox[{"[", "1", "]"}], "]"}]}], ",", 
-          RowBox[{"{", 
-           RowBox[{"i", ",", "1", ",", "n"}], "}"}]}], "]"}], "]"}]}]}], 
-     "\[IndentingNewLine]", "]"}]}], ";"}], 
-  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{
-   RowBox[{"isValidSimplex", "=", 
-    RowBox[{"Function", "[", 
-     RowBox[{"S", ",", "\[IndentingNewLine]", 
-      RowBox[{
-       RowBox[{"A", "=", 
-        RowBox[{"AffineMatrix", "[", "S", "]"}]}], ";", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"AffineMatrix", "=", 
+     RowBox[{"Function", "[", 
+      RowBox[{"S", ",", "\[IndentingNewLine]", 
        RowBox[{
-        RowBox[{"Det", "[", "A", "]"}], " ", "\[NotEqual]", "0"}]}]}], 
-     "\[IndentingNewLine]", "]"}]}], ";"}], 
-  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{
-   RowBox[{"interiorSimplexConditions", "=", 
-    RowBox[{"Function", "[", 
-     RowBox[{"a", ",", "\[IndentingNewLine]", 
-      RowBox[{
-       RowBox[{"n", "=", 
-        RowBox[{"Length", "[", "a", "]"}]}], ";", "\[IndentingNewLine]", 
-       RowBox[{"conds", "=", 
-        RowBox[{"{", 
+        RowBox[{"n", "=", 
          RowBox[{
-          RowBox[{"Total", "[", "a", "]"}], "<", "1"}], "}"}]}], ";", 
-       "\[IndentingNewLine]", 
-       RowBox[{"Do", "[", 
+          RowBox[{"Length", "[", "S", "]"}], "-", "1"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"Transpose", "[", 
+         RowBox[{"Table", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"S", "[", 
+             RowBox[{"[", 
+              RowBox[{"i", "+", "1"}], "]"}], "]"}], "-", 
+            RowBox[{"S", "[", 
+             RowBox[{"[", "1", "]"}], "]"}]}], ",", 
+           RowBox[{"{", 
+            RowBox[{"i", ",", "1", ",", "n"}], "}"}]}], "]"}], "]"}]}]}], 
+      "\[IndentingNewLine]", "]"}]}], ";"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"isValidSimplex", "=", 
+     RowBox[{"Function", "[", 
+      RowBox[{"S", ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"A", "=", 
+         RowBox[{"AffineMatrix", "[", "S", "]"}]}], ";", 
+        "\[IndentingNewLine]", 
         RowBox[{
-         RowBox[{"conds", "=", 
-          RowBox[{"Append", "[", 
-           RowBox[{"conds", ",", 
+         RowBox[{"Det", "[", "A", "]"}], " ", "\[NotEqual]", "0"}]}]}], 
+      "\[IndentingNewLine]", "]"}]}], ";"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"interiorSimplexConditions", "=", 
+     RowBox[{"Function", "[", 
+      RowBox[{"a", ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"n", "=", 
+         RowBox[{"Length", "[", "a", "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"conds", "=", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"Total", "[", "a", "]"}], "<", "1"}], "}"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"Do", "[", 
+         RowBox[{
+          RowBox[{"conds", "=", 
+           RowBox[{"Append", "[", 
+            RowBox[{"conds", ",", 
+             RowBox[{
+              RowBox[{"a", "[", 
+               RowBox[{"[", "i", "]"}], "]"}], ">", "0"}]}], "]"}]}], ",", 
+          RowBox[{"{", 
+           RowBox[{"i", ",", "1", ",", "n"}], "}"}]}], "]"}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"Reduce", "[", "conds", "]"}]}]}], "\[IndentingNewLine]", 
+      "]"}]}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"pointinSimplex", "=", 
+     RowBox[{"Function", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"S", ",", "a"}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"A", "=", 
+         RowBox[{"AffineMatrix", "[", "S", "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"S", "[", 
+          RowBox[{"[", "1", "]"}], "]"}], "+", 
+         RowBox[{"A", ".", "a"}]}]}]}], "\[IndentingNewLine]", "]"}]}], ";"}],
+    "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"haveDisjointInteriors", "=", 
+     RowBox[{"Function", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"S", ",", "T"}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"n", "=", 
+         RowBox[{
+          RowBox[{"Length", "[", "S", "]"}], "-", "1"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"s", "=", 
+         RowBox[{"Table", "[", 
+          RowBox[{
+           RowBox[{"Subscript", "[", 
+            RowBox[{"x", ",", "i"}], "]"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"i", ",", "1", ",", "n"}], "}"}]}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"t", "=", 
+         RowBox[{"Table", "[", 
+          RowBox[{
+           RowBox[{"Subscript", "[", 
+            RowBox[{"y", ",", "i"}], "]"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"i", ",", "1", ",", "n"}], "}"}]}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"p", "=", 
+         RowBox[{"pointinSimplex", "[", 
+          RowBox[{"S", ",", "s"}], "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"q", "=", 
+         RowBox[{"pointinSimplex", "[", 
+          RowBox[{"T", ",", "t"}], "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"constraints", "=", 
+         RowBox[{
+          RowBox[{"interiorSimplexConditions", "[", "s", "]"}], "&&", 
+          RowBox[{"interiorSimplexConditions", "[", "t", "]"}]}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"FindInstance", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"p", "\[Equal]", "q"}], "&&", "constraints"}], ",", 
+           RowBox[{"Union", "[", 
+            RowBox[{"s", ",", "t"}], "]"}]}], "]"}], "\[Equal]", 
+         RowBox[{"{", "}"}]}]}]}], "\[IndentingNewLine]", "]"}]}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"arepairwisedisjointsimplices", "=", 
+     RowBox[{"Function", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"S", ",", "othersimplices"}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"SelectFirst", "[", 
+         RowBox[{"othersimplices", ",", 
+          RowBox[{
+           RowBox[{"(", 
             RowBox[{
-             RowBox[{"a", "[", 
-              RowBox[{"[", "i", "]"}], "]"}], ">", "0"}]}], "]"}]}], ",", 
+             RowBox[{"haveDisjointInteriors", "[", 
+              RowBox[{"S", ",", "#"}], "]"}], "\[Equal]", "False"}], ")"}], 
+           "&"}], ",", "True"}], "]"}], "===", "True"}]}], 
+      "\[IndentingNewLine]", "]"}]}], ";"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"triangulate", "=", 
+     RowBox[{"Function", "[", 
+      RowBox[{"V", ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"n", "=", 
+         RowBox[{"Length", "[", 
+          RowBox[{"V", "[", 
+           RowBox[{"[", "1", "]"}], "]"}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"candidatesimplices", "=", 
+         RowBox[{"Select", "[", 
+          RowBox[{
+           RowBox[{"Subsets", "[", 
+            RowBox[{"V", ",", 
+             RowBox[{"{", 
+              RowBox[{"n", "+", "1"}], "}"}]}], "]"}], ",", 
+           RowBox[{
+            RowBox[{"isValidSimplex", "[", "#", "]"}], "&"}]}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"pairwisedisjointsimplices", "=", 
          RowBox[{"{", 
-          RowBox[{"i", ",", "1", ",", "n"}], "}"}]}], "]"}], ";", 
-       "\[IndentingNewLine]", 
-       RowBox[{"Reduce", "[", "conds", "]"}]}]}], "\[IndentingNewLine]", 
-     "]"}]}], ";"}], "\[IndentingNewLine]", 
-  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{
-   RowBox[{"pointinSimplex", "=", 
-    RowBox[{"Function", "[", 
-     RowBox[{
-      RowBox[{"{", 
-       RowBox[{"S", ",", "a"}], "}"}], ",", "\[IndentingNewLine]", 
-      RowBox[{
-       RowBox[{"A", "=", 
-        RowBox[{"AffineMatrix", "[", "S", "]"}]}], ";", "\[IndentingNewLine]", 
-       RowBox[{
-        RowBox[{"S", "[", 
-         RowBox[{"[", "1", "]"}], "]"}], "+", 
-        RowBox[{"A", ".", "a"}]}]}]}], "\[IndentingNewLine]", "]"}]}], ";"}], 
-  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{
-   RowBox[{"haveDisjointInteriors", "=", 
-    RowBox[{"Function", "[", 
-     RowBox[{
-      RowBox[{"{", 
-       RowBox[{"S", ",", "T"}], "}"}], ",", "\[IndentingNewLine]", 
-      RowBox[{
-       RowBox[{"n", "=", 
-        RowBox[{
-         RowBox[{"Length", "[", "S", "]"}], "-", "1"}]}], ";", 
-       "\[IndentingNewLine]", 
-       RowBox[{"s", "=", 
-        RowBox[{"Table", "[", 
-         RowBox[{
-          RowBox[{"Subscript", "[", 
-           RowBox[{"x", ",", "i"}], "]"}], ",", 
-          RowBox[{"{", 
-           RowBox[{"i", ",", "1", ",", "n"}], "}"}]}], "]"}]}], ";", 
-       "\[IndentingNewLine]", 
-       RowBox[{"t", "=", 
-        RowBox[{"Table", "[", 
-         RowBox[{
-          RowBox[{"Subscript", "[", 
-           RowBox[{"y", ",", "i"}], "]"}], ",", 
-          RowBox[{"{", 
-           RowBox[{"i", ",", "1", ",", "n"}], "}"}]}], "]"}]}], ";", 
-       "\[IndentingNewLine]", 
-       RowBox[{"p", "=", 
-        RowBox[{"pointinSimplex", "[", 
-         RowBox[{"S", ",", "s"}], "]"}]}], ";", "\[IndentingNewLine]", 
-       RowBox[{"q", "=", 
-        RowBox[{"pointinSimplex", "[", 
-         RowBox[{"T", ",", "t"}], "]"}]}], ";", "\[IndentingNewLine]", 
-       RowBox[{"constraints", "=", 
-        RowBox[{
-         RowBox[{"interiorSimplexConditions", "[", "s", "]"}], "&&", 
-         RowBox[{"interiorSimplexConditions", "[", "t", "]"}]}]}], ";", 
-       "\[IndentingNewLine]", 
-       RowBox[{
-        RowBox[{"FindInstance", "[", 
-         RowBox[{
+          RowBox[{"candidatesimplices", "[", 
+           RowBox[{"[", "1", "]"}], "]"}], "}"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"i", "=", "1"}], ";", "\[IndentingNewLine]", 
+        RowBox[{"While", "[", 
+         RowBox[{"True", " ", ",", "\[IndentingNewLine]", 
           RowBox[{
-           RowBox[{"p", "\[Equal]", "q"}], "&&", "constraints"}], ",", 
-          RowBox[{"Union", "[", 
-           RowBox[{"s", ",", "t"}], "]"}]}], "]"}], "\[Equal]", 
-        RowBox[{"{", "}"}]}]}]}], "\[IndentingNewLine]", "]"}]}], ";"}], 
-  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{
-   RowBox[{"arepairwisedisjointsimplices", "=", 
-    RowBox[{"Function", "[", 
-     RowBox[{
-      RowBox[{"{", 
-       RowBox[{"S", ",", "othersimplices"}], "}"}], ",", 
-      "\[IndentingNewLine]", 
-      RowBox[{
-       RowBox[{"SelectFirst", "[", 
-        RowBox[{"othersimplices", ",", 
-         RowBox[{
-          RowBox[{"(", 
-           RowBox[{
-            RowBox[{"haveDisjointInteriors", "[", 
-             RowBox[{"S", ",", "#"}], "]"}], "\[Equal]", "False"}], ")"}], 
-          "&"}], ",", "True"}], "]"}], "===", "True"}]}], 
-     "\[IndentingNewLine]", "]"}]}], ";"}], 
-  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{
-   RowBox[{"triangulate", "=", 
-    RowBox[{"Function", "[", 
-     RowBox[{"V", ",", "\[IndentingNewLine]", 
-      RowBox[{
-       RowBox[{"n", "=", 
-        RowBox[{"Length", "[", 
-         RowBox[{"V", "[", 
-          RowBox[{"[", "1", "]"}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
-       RowBox[{"candidatesimplices", "=", 
-        RowBox[{"Select", "[", 
-         RowBox[{
-          RowBox[{"Subsets", "[", 
-           RowBox[{"V", ",", 
-            RowBox[{"{", 
-             RowBox[{"n", "+", "1"}], "}"}]}], "]"}], ",", 
-          RowBox[{
-           RowBox[{"isValidSimplex", "[", "#", "]"}], "&"}]}], "]"}]}], ";", 
-       "\[IndentingNewLine]", 
-       RowBox[{"pairwisedisjointsimplices", "=", 
-        RowBox[{"{", 
-         RowBox[{"candidatesimplices", "[", 
-          RowBox[{"[", "1", "]"}], "]"}], "}"}]}], ";", "\[IndentingNewLine]", 
-       RowBox[{"i", "=", "1"}], ";", "\[IndentingNewLine]", 
-       RowBox[{"While", "[", 
-        RowBox[{"True", " ", ",", "\[IndentingNewLine]", 
-         RowBox[{
-          RowBox[{"If", "[", 
-           RowBox[{
-            RowBox[{"i", "<", 
-             RowBox[{"Length", "[", "candidatesimplices", "]"}]}], ",", 
-            RowBox[{"i", "=", 
-             RowBox[{"SelectFirst", "[", 
-              RowBox[{
-               RowBox[{"Range", "[", 
-                RowBox[{
-                 RowBox[{"i", "+", "1"}], ",", 
-                 RowBox[{"Length", "[", "candidatesimplices", "]"}]}], "]"}], 
-               ",", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{"i", "<", 
+              RowBox[{"Length", "[", "candidatesimplices", "]"}]}], ",", 
+             RowBox[{"i", "=", 
+              RowBox[{"SelectFirst", "[", 
                RowBox[{
-                RowBox[{"arepairwisedisjointsimplices", "[", 
+                RowBox[{"Range", "[", 
                  RowBox[{
-                  RowBox[{"candidatesimplices", "[", 
-                   RowBox[{"[", "#", "]"}], "]"}], ",", 
-                  "pairwisedisjointsimplices"}], "]"}], "&"}]}], "]"}]}], ",",
-             " ", 
-            RowBox[{"Break", "[", "]"}]}], "]"}], ";", "\[IndentingNewLine]", 
-          
-          RowBox[{"If", "[", 
+                  RowBox[{"i", "+", "1"}], ",", 
+                  RowBox[{"Length", "[", "candidatesimplices", "]"}]}], "]"}],
+                 ",", 
+                RowBox[{
+                 RowBox[{"arepairwisedisjointsimplices", "[", 
+                  RowBox[{
+                   RowBox[{"candidatesimplices", "[", 
+                    RowBox[{"[", "#", "]"}], "]"}], ",", 
+                   "pairwisedisjointsimplices"}], "]"}], "&"}]}], "]"}]}], 
+             ",", " ", 
+             RowBox[{"Break", "[", "]"}]}], "]"}], ";", "\[IndentingNewLine]", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{"Element", "[", 
+              RowBox[{"i", ",", "Integers"}], "]"}], ",", 
+             RowBox[{"pairwisedisjointsimplices", "=", 
+              RowBox[{"Append", "[", 
+               RowBox[{"pairwisedisjointsimplices", ",", 
+                RowBox[{"candidatesimplices", "[", 
+                 RowBox[{"[", "i", "]"}], "]"}]}], "]"}]}], ",", " ", 
+             RowBox[{"Break", "[", "]"}]}], "]"}], ";"}]}], 
+         "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+        "pairwisedisjointsimplices"}]}], "\[IndentingNewLine]", "]"}]}], 
+    ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"computeVolume", "=", 
+     RowBox[{"Function", "[", 
+      RowBox[{"V", ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"n", "=", 
+         RowBox[{"Length", "[", 
+          RowBox[{"V", "[", 
+           RowBox[{"[", "1", "]"}], "]"}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"pairwisedisjointsimplices", "=", 
+         RowBox[{"triangulate", "[", "V", "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"simplexVolumes", "=", 
+         RowBox[{"Table", "[", 
+          RowBox[{
            RowBox[{
-            RowBox[{"Element", "[", 
-             RowBox[{"i", ",", "Integers"}], "]"}], ",", 
-            RowBox[{"pairwisedisjointsimplices", "=", 
-             RowBox[{"Append", "[", 
-              RowBox[{"pairwisedisjointsimplices", ",", 
-               RowBox[{"candidatesimplices", "[", 
-                RowBox[{"[", "i", "]"}], "]"}]}], "]"}]}], ",", " ", 
-            RowBox[{"Break", "[", "]"}]}], "]"}], ";"}]}], 
-        "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
-       "pairwisedisjointsimplices"}]}], "\[IndentingNewLine]", "]"}]}], ";"}],
-   "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"computeVolume", "=", 
-   RowBox[{"Function", "[", 
-    RowBox[{"V", ",", "\[IndentingNewLine]", 
-     RowBox[{
-      RowBox[{"n", "=", 
-       RowBox[{"Length", "[", 
-        RowBox[{"V", "[", 
-         RowBox[{"[", "1", "]"}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
-      
-      RowBox[{"pairwisedisjointsimplices", "=", 
-       RowBox[{"triangulate", "[", "V", "]"}]}], ";", "\[IndentingNewLine]", 
-      RowBox[{"simplexVolumes", "=", 
-       RowBox[{"Table", "[", 
-        RowBox[{
-         RowBox[{
-          RowBox[{"Abs", "[", 
-           RowBox[{"Det", "[", 
-            RowBox[{"AffineMatrix", "[", 
-             RowBox[{"pairwisedisjointsimplices", "[", 
-              RowBox[{"[", "i", "]"}], "]"}], "]"}], "]"}], "]"}], "/", 
-          RowBox[{"n", "!"}]}], ",", 
-         RowBox[{"{", 
-          RowBox[{"i", ",", "1", ",", 
-           RowBox[{"Length", "[", "pairwisedisjointsimplices", "]"}]}], 
-          "}"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
-      RowBox[{"Total", "[", "simplexVolumes", "]"}]}]}], 
-    "\[IndentingNewLine]", "]"}]}], ";"}], "\[IndentingNewLine]"}], "Input",
+            RowBox[{"Abs", "[", 
+             RowBox[{"Det", "[", 
+              RowBox[{"AffineMatrix", "[", 
+               RowBox[{"pairwisedisjointsimplices", "[", 
+                RowBox[{"[", "i", "]"}], "]"}], "]"}], "]"}], "]"}], "/", 
+            RowBox[{"n", "!"}]}], ",", 
+           RowBox[{"{", 
+            RowBox[{"i", ",", "1", ",", 
+             RowBox[{"Length", "[", "pairwisedisjointsimplices", "]"}]}], 
+            "}"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"Total", "[", "simplexVolumes", "]"}]}]}], 
+      "\[IndentingNewLine]", "]"}]}], ";"}], 
+   "\[IndentingNewLine]"}]}]], "Input",
  CellChangeTimes->{{3.832269177176292*^9, 3.832269200445258*^9}, {
    3.83226924235638*^9, 3.832269248827037*^9}, {3.8322692860892143`*^9, 
    3.832269299564633*^9}, {3.8322693379475307`*^9, 3.832269867127239*^9}, {
@@ -279,8 +280,19 @@ Cell[BoxData[{
    3.832276151267572*^9, 3.832276178004691*^9}, {3.8322762350230083`*^9, 
    3.832276271705083*^9}, {3.832276318613635*^9, 3.832276319213407*^9}, {
    3.832276445612446*^9, 3.832276568113185*^9}, {3.832276611575601*^9, 
-   3.832276804565176*^9}, 3.832288610722559*^9},
- CellLabel->"In[16]:=",ExpressionUUID->"12360f56-97b9-4b37-a78c-8c8cb7098225"],
+   3.832276804565176*^9}, 3.832288610722559*^9, {3.8322901757175627`*^9, 
+   3.832290211638933*^9}},ExpressionUUID->"12360f56-97b9-4b37-a78c-\
+8c8cb7098225"],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "$\\frac{1}2$",ExpressionUUID->"9f1d1293-2375-4035-8bc3-2945fd9b7fa3"],
+  TextCell["$\\frac{1}2$"]]], "Output",
+ CellChangeTimes->{3.832290207865612*^9},
+ CellLabel->"Out[17]=",ExpressionUUID->"d18ee2f9-aae7-4b82-bd92-bcbf449f88ea"]
+}, Open  ]],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[{
  RowBox[{
@@ -330,48 +342,58 @@ Cell[BoxData[{
           RowBox[{"[", "1", "]"}], "]"}]}], "\[LessEqual]", "1"}]}]}]}], 
     "\[IndentingNewLine]", "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"CalabiPolytope", "=", 
-   RowBox[{"Function", "[", 
-    RowBox[{"n", ",", "\[IndentingNewLine]", 
-     RowBox[{
-      RowBox[{"vertices", "=", 
-       RowBox[{"cube", "[", "n", "]"}]}], ";", "\[IndentingNewLine]", 
-      RowBox[{"If", "[", 
-       RowBox[{
+  RowBox[{
+   RowBox[{"CalabiPolytope", "=", 
+    RowBox[{"Function", "[", 
+     RowBox[{"n", ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"vertices", "=", 
+        RowBox[{"cube", "[", "n", "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"If", "[", 
         RowBox[{
-         RowBox[{"Mod", "[", 
-          RowBox[{"n", ",", "2"}], "]"}], "\[NotEqual]", "0"}], ",", 
-        RowBox[{
-         RowBox[{"vertices", "=", 
-          RowBox[{"Append", "[", 
-           RowBox[{"vertices", ",", 
-            RowBox[{
-             RowBox[{"1", "/", "2"}], "*", 
-             RowBox[{"vertices", "[", 
-              RowBox[{"[", 
-               RowBox[{"Length", "[", "vertices", "]"}], "]"}], "]"}]}]}], 
-           "]"}]}], ";"}]}], "]"}], ";", "\[IndentingNewLine]", 
-      RowBox[{"vertices", "=", 
-       RowBox[{"Select", "[", 
+         RowBox[{
+          RowBox[{"Mod", "[", 
+           RowBox[{"n", ",", "2"}], "]"}], "\[NotEqual]", "0"}], ",", 
+         RowBox[{
+          RowBox[{"vertices", "=", 
+           RowBox[{"Append", "[", 
+            RowBox[{"vertices", ",", 
+             RowBox[{
+              RowBox[{"1", "/", "2"}], "*", 
+              RowBox[{"vertices", "[", 
+               RowBox[{"[", 
+                RowBox[{"Length", "[", "vertices", "]"}], "]"}], "]"}]}]}], 
+            "]"}]}], ";"}]}], "]"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"vertices", "=", 
+        RowBox[{"Select", "[", 
+         RowBox[{"vertices", ",", 
+          RowBox[{
+           RowBox[{"CalabiConditions", "[", "#", "]"}], "&"}]}], "]"}]}], ";",
+        "\[IndentingNewLine]", 
+       RowBox[{"Sort", "[", 
         RowBox[{"vertices", ",", 
          RowBox[{
-          RowBox[{"CalabiConditions", "[", "#", "]"}], "&"}]}], "]"}]}], ";", 
-      "\[IndentingNewLine]", 
-      RowBox[{"Sort", "[", 
-       RowBox[{"vertices", ",", 
-        RowBox[{
-         RowBox[{
-          RowBox[{"Count", "[", 
-           RowBox[{"#1", ",", "0"}], "]"}], ">", 
-          RowBox[{"Count", "[", 
-           RowBox[{"#2", ",", "0"}], "]"}]}], "&"}]}], "]"}]}]}], 
-    "\[IndentingNewLine]", "]"}]}], ";"}]}], "Input",
+          RowBox[{
+           RowBox[{"Count", "[", 
+            RowBox[{"#1", ",", "0"}], "]"}], ">", 
+           RowBox[{"Count", "[", 
+            RowBox[{"#2", ",", "0"}], "]"}]}], "&"}]}], "]"}]}]}], 
+     "\[IndentingNewLine]", "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{"computeVolume", "[", 
+  RowBox[{"CalabiPolytope", "[", "3", "]"}], "]"}]}], "Input",
  CellChangeTimes->{{3.832276486509256*^9, 3.832276501769103*^9}, {
   3.8322767903366833`*^9, 3.8322768093736057`*^9}, {3.832276887440969*^9, 
   3.832276888325789*^9}, {3.832276972844347*^9, 3.8322770024800367`*^9}, {
   3.832277134909095*^9, 3.8322771351089487`*^9}, {3.832288242203929*^9, 
-  3.8322882458968563`*^9}},
- CellLabel->"In[24]:=",ExpressionUUID->"6bf558bb-f070-40eb-95c4-4c51b276a0f5"],
+  3.8322882458968563`*^9}, {3.8322899963758087`*^9, 3.832289999282261*^9}},
+ CellLabel->"In[13]:=",ExpressionUUID->"6bf558bb-f070-40eb-95c4-4c51b276a0f5"],
+
+Cell[BoxData[
+ FractionBox["1", "4"]], "Output",
+ CellChangeTimes->{3.8322899998715982`*^9},
+ CellLabel->"Out[16]=",ExpressionUUID->"a8cee808-d4f4-4359-8dba-50260f34e468"]
+}, Open  ]],
 
 Cell[BoxData["\[IndentingNewLine]"], "Input",
  CellChangeTimes->{{3.832277004425563*^9, 3.832277026275694*^9}, 
@@ -381,21 +403,25 @@ Cell[BoxData["\[IndentingNewLine]"], "Input",
 
 Cell[CellGroupData[{
 
-Cell[BoxData[
- RowBox[{"computeVolume", "[", 
-  RowBox[{"CalabiPolytope", "[", "3", "]"}], "]"}]], "Input",
+Cell[BoxData[""], "Input",
  CellChangeTimes->{{3.832277081376626*^9, 3.832277095275495*^9}, {
-  3.832277125809108*^9, 3.8322771661005077`*^9}, {3.8322882502054358`*^9, 
-  3.8322882503518353`*^9}},
- CellLabel->"In[27]:=",ExpressionUUID->"d120a8af-7791-4570-bb09-416c358376d2"],
+   3.832277125809108*^9, 3.8322771661005077`*^9}, {3.8322882502054358`*^9, 
+   3.8322882503518353`*^9}, 
+   3.832289995522999*^9},ExpressionUUID->"d120a8af-7791-4570-bb09-\
+416c358376d2"],
 
 Cell[BoxData[
  FractionBox["1", "4"]], "Output",
  CellChangeTimes->{{3.8322770920936203`*^9, 3.832277095446184*^9}, {
    3.832277129947873*^9, 3.832277159670868*^9}, 3.832277394042997*^9, 
-   3.832288250784045*^9, 3.832288617447074*^9},
- CellLabel->"Out[27]=",ExpressionUUID->"9a838670-a1a1-4a06-a8b2-868d1bc2fe75"]
-}, Open  ]]
+   3.832288250784045*^9, 3.832288617447074*^9, 3.832289982540223*^9},
+ CellLabel->"Out[12]=",ExpressionUUID->"b00c0388-ae63-4d2b-b471-7f588c3edd45"]
+}, Open  ]],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.8322900456764803`*^9, 
+  3.832290048665154*^9}},ExpressionUUID->"b7a8519c-79ec-4fbe-8f0a-\
+e6c055c81510"]
 },
 WindowSize->{2158, 911},
 WindowMargins->{{105, Automatic}, {145, Automatic}},
@@ -413,13 +439,20 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 10995, 262, 1186, "Input",ExpressionUUID->"12360f56-97b9-4b37-a78c-8c8cb7098225"],
-Cell[11556, 284, 3458, 89, 346, "Input",ExpressionUUID->"6bf558bb-f070-40eb-95c4-4c51b276a0f5"],
-Cell[15017, 375, 222, 4, 52, "Input",ExpressionUUID->"cbb4a8d1-ae43-46dc-a70b-8acf4b5c49bd"],
 Cell[CellGroupData[{
-Cell[15264, 383, 356, 6, 30, "Input",ExpressionUUID->"d120a8af-7791-4570-bb09-416c358376d2"],
-Cell[15623, 391, 315, 5, 50, "Output",ExpressionUUID->"9a838670-a1a1-4a06-a8b2-868d1bc2fe75"]
-}, Open  ]]
+Cell[580, 22, 11294, 262, 1228, "Input",ExpressionUUID->"12360f56-97b9-4b37-a78c-8c8cb7098225"],
+Cell[11877, 286, 273, 5, 36, "Output",ExpressionUUID->"d18ee2f9-aae7-4b82-bd92-bcbf449f88ea"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[12187, 296, 3689, 93, 388, "Input",ExpressionUUID->"6bf558bb-f070-40eb-95c4-4c51b276a0f5"],
+Cell[15879, 391, 171, 3, 50, "Output",ExpressionUUID->"a8cee808-d4f4-4359-8dba-50260f34e468"]
+}, Open  ]],
+Cell[16065, 397, 222, 4, 52, "Input",ExpressionUUID->"cbb4a8d1-ae43-46dc-a70b-8acf4b5c49bd"],
+Cell[CellGroupData[{
+Cell[16312, 405, 281, 5, 30, "Input",ExpressionUUID->"d120a8af-7791-4570-bb09-416c358376d2"],
+Cell[16596, 412, 337, 5, 50, "Output",ExpressionUUID->"b00c0388-ae63-4d2b-b471-7f588c3edd45"]
+}, Open  ]],
+Cell[16948, 420, 154, 3, 30, "Input",ExpressionUUID->"b7a8519c-79ec-4fbe-8f0a-e6c055c81510"]
 }
 ]
 *)
