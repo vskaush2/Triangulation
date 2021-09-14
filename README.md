@@ -1,19 +1,21 @@
 # Triangulation
-This project describes a generic algorithm to triangulate an n-dimensional polytope. This algorithm is implemented both in Python and Mathematica. 
+We investigate a classical problem in combinatorial topology, which is to triangulate a polytope in n-dimensional space.
 
-To run the Python Jupyter Notebook:
-
-- Download Project from Git.
-- Open Command Prompt/Terminal and change directory to the Project Folder.
-- Create a new virtual environment running the latest version of Python.
-- Type "pip3 install -r requirements.txt" on Command Prompt/Terminal to install all the project requirements and dependencies.
-- Type "jupyter notebook" Command Prompt/Terminal
-- Open the "TriangulationDemo.ipynb" file on the Jupyter Server.
-- Run each code cell.
-
-To run the Mathematica Notebook:
-- Install the latest version of Mathematica.
-- Open the "TriangulationDemo.nb" file in Mathematica.
-- Run each code cell. 
-
-
+## Downloading Requirements
+* Download PyCharm (free edition) from https://www.jetbrains.com/pycharm/.
+* Download the latest version of Python 3 from https://www.python.org/downloads/.
+## Importing Project
+* Open PyCharm and select `Get from VCS`.
+* Enter this project's .git link.
+* Specify the download location to be the `PyCharmProjects` folder.
+## Installing Project Dependencies
+* Open PyCharm Settings and locate the `Project: Triangulation` pane.
+* Click on `Project Interpreter`.
+* Add a new `VirtualEnv` environment with your system Python.
+* Restart PyCharm and open its local `Terminal`.
+* Type the command `pip3 install -r requirements.txt` to install project dependencies.
+## Jupyter Server Instructions
+* Open the local `Terminal` on PyCharm.
+* Type the command `jupyter notebook` to open up a new Jupyter Server.
+* Click on the `Triangulation.ipynb` file to open the notebook.
+* Run each code cell using the toolbar on top of the window.
