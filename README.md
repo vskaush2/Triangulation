@@ -15,7 +15,7 @@ We investigate a classical problem in combinatorial topology, which is to triang
 - Follow the onscreen instructions to do so.
 - Make sure you specify your installed Python 3 for creating the Virtual Environment.
 
-## Installing Project Dependencies
+## Installing Project Dependencies Manually
 * Open PyCharm Settings and locate the `Project: Triangulation` pane.
 * Click on `Project Interpreter`.
 * Add a new `VirtualEnv` environment with your system Python.
